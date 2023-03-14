@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  backend:
+    build: /Django-Poll-App
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRESS_NAME: app_db
+      POSTGRESS_USER: app_user
+      POSTGRES_PASSWORD: secret_password
