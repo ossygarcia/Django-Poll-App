@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  web:
+    build: ./poll/Django-deploy
+    command: bash startup.sh
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./config/nginx:/etc/nginx/conf.d
+    depends_on:
+      - web
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: com
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example

@@ -84,9 +84,15 @@ WSGI_APPLICATION = 'pollme.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+<<<<<<< HEAD:pollme/settings.py
         'NAME': 'app_db',
         'USER': 'app_user',
         'PASSWORD': 'secret_password',
+=======
+        'NAME': 'com',
+        'USER': 'postgres',
+        'PASSWORD': 'example',
+>>>>>>> 5ac926a (updated):poll/Django-deploy/pollme/settings.py
         'HOST': 'db',
         'PORT': '5432',
      }
